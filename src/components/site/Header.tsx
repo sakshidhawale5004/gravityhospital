@@ -12,7 +12,7 @@ export function Header() {
   const [facilitiesOpen, setFacilitiesOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 w-full glass border-b border-border/60">
+    <header className="sticky top-0 z-40 w-full bg-white border-b border-border/80 shadow-sm">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6">
         <Link to="/" className="flex items-center gap-3 group">
           <img src={logo.url} alt="Gravity Hospital" className="h-12 w-12 object-contain transition-transform group-hover:scale-105" />
@@ -60,7 +60,7 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="lg:hidden border-t bg-background/95 backdrop-blur">
+        <div className="lg:hidden border-t bg-white shadow-md">
           <div className="mx-auto max-w-7xl px-4 py-4 grid gap-1 text-sm">
             <MobileLink to="/" onClick={() => setOpen(false)}>Home</MobileLink>
             <MobileLink to="/about" onClick={() => setOpen(false)}>About</MobileLink>
@@ -141,7 +141,7 @@ function Dropdown({
       </Link>
       {open && (
         <div className="absolute left-0 top-full pt-2 w-[520px] animate-fade-in-up">
-          <div className="rounded-2xl border bg-popover p-3 shadow-3d grid grid-cols-2 gap-1.5">
+          <div className="rounded-2xl border border-border/80 bg-white p-3 shadow-3d grid grid-cols-2 gap-1.5">
             {items.map((it) => (
               <Link
                 key={it.href}

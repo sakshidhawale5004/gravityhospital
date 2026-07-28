@@ -37,7 +37,7 @@ function About() {
           <div className="p-6 sm:p-8 flex items-center justify-center bg-gradient-to-br from-primary/5 via-muted/30 to-background border-b lg:border-b-0 lg:border-r border-border/60">
             <div className="relative w-full max-w-sm aspect-[4/5] overflow-hidden rounded-2xl shadow-3d border-4 border-white group">
               <img
-                src={md.image}
+                src="/aboutpagepratapimage.jpeg"
                 alt={md.name}
                 className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
               />
@@ -56,7 +56,7 @@ function About() {
                 {md.name}
               </h2>
               <div className="mt-1 text-base font-semibold text-primary">
-                {md.role} · {md.speciality}
+                {md.role} · {md.speciality} · Honoured with Samajratna Puraskar
               </div>
 
               <p className="mt-6 text-muted-foreground leading-relaxed text-base">
@@ -119,7 +119,97 @@ function About() {
         </div>
         <div className="rounded-3xl overflow-hidden shadow-3d border border-border/80 bg-card p-4">
           <div className="rounded-2xl overflow-hidden h-96">
-            <img src="/hospitalbuilding.jpeg" alt="Hospital Building" className="w-full h-full object-cover" />
+            <img src="/BUILDING%20IMage%20for%20about%20page.jpeg" alt="Gravity Hospital Main Building" className="w-full h-full object-cover" />
+          </div>
+        </div>
+      </section>
+
+      {/* Hospital Campus & Facility Showcase Gallery */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 mt-24">
+        <div className="text-center max-w-3xl mx-auto">
+          <div className="text-xs font-bold uppercase tracking-widest text-primary">Hospital Campus</div>
+          <h2 className="mt-2 font-display text-3xl sm:text-4xl font-extrabold">A Look Inside Our Healthcare Campus</h2>
+          <p className="mt-3 text-muted-foreground">
+            Modern, welcoming architecture combined with Level-3 clinical safety and rapid-access emergency triage in Nigdi, PCMC.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-7 sm:grid-cols-3">
+          {[
+            {
+              src: "/BUILDING%20IMage%20for%20about%20page.jpeg",
+              title: "Main Hospital Building",
+              desc: "Primary patient entrance with 0-minute emergency walk-in access and 24×7 ambulance bay.",
+            },
+            {
+              src: "/aboutpageimage.webp",
+              title: "Multi-Speciality OPD & Diagnostics",
+              desc: "Consultation chambers for 12+ specialities, digital radiology, and modern diagnostic laboratory.",
+            },
+            {
+              src: "/hospitalnewimage.jpeg",
+              title: "Gravity Hospital Campus",
+              desc: "Our landmark institution in Nigdi, Pradhikaran serving families across Pimpri-Chinchwad and Pune.",
+            },
+          ].map((item) => (
+            <div key={item.title} className="card-3d rounded-3xl overflow-hidden border border-border/80 bg-card shadow-soft hover:shadow-3d transition-all duration-300 flex flex-col justify-between">
+              <div className="relative h-64 overflow-hidden bg-muted">
+                <img src={item.src} alt={item.title} className="h-full w-full object-cover transition-transform duration-700 hover:scale-110" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-4 text-white font-display font-bold text-lg">{item.title}</div>
+              </div>
+              <div className="p-6">
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Strategic Pillars of Institutional Excellence */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 mt-24">
+        <div className="rounded-3xl border border-border/80 bg-gradient-to-br from-primary/5 via-background to-muted/30 p-8 sm:p-14 shadow-soft">
+          <div className="text-center max-w-3xl mx-auto">
+            <div className="text-xs font-bold uppercase tracking-widest text-primary">Institutional Excellence</div>
+            <h2 className="mt-2 font-display text-3xl sm:text-4xl font-extrabold text-foreground">Why Families & Physicians Trust Gravity</h2>
+            <p className="mt-3 text-muted-foreground">
+              We adhere strictly to evidence-based clinical protocols, ethical patient counseling, and 100% transparent pricing.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              {
+                title: "24×7 Trauma & ICU Protocols",
+                desc: "Immediate ACLS-certified nursing response, bedside echocardiography, mechanical ventilation, and continuous specialist monitoring.",
+              },
+              {
+                title: "Zero-Infection Surgical Suites",
+                desc: "Modular operating theatres with HEPA laminar airflow filtration, positive-pressure air balance, and stringent sterility auditing.",
+              },
+              {
+                title: "Dedicated TPA Insurance Desk",
+                desc: "Direct cashless tie-ups across all major health insurers and corporate TPAs with instant pre-authorization processing.",
+              },
+              {
+                title: "Multi-Disciplinary Tumor & Surgical Boards",
+                desc: "Complex surgical cases are reviewed collaboratively by surgeons, physicians, and intensivists for optimal patient outcomes.",
+              },
+              {
+                title: "Transparent & Itemized Billing",
+                desc: "Clear upfront estimates with detailed itemized bills at discharge—giving families complete peace of mind with zero hidden charges.",
+              },
+              {
+                title: "Community Healthcare Leadership",
+                desc: "Recognized with the prestigious Samajratna Puraskar for free health camps, emergency medical outreach, and charitable care.",
+              },
+            ].map((p, idx) => (
+              <div key={p.title} className="rounded-2xl bg-white p-7 border border-border/80 shadow-sm relative">
+                <div className="font-display text-2xl font-bold text-primary/20 absolute top-5 right-6">0{idx + 1}</div>
+                <h3 className="font-display font-bold text-lg text-foreground relative z-10 pr-6">{p.title}</h3>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed relative z-10">{p.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

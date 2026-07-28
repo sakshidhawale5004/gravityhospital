@@ -368,7 +368,7 @@ export const FACILITIES: Facility[] = [
     short: "Multi-disciplinary critical care, 24×7.",
     icon: "🏥",
     image:
-      "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?auto=format&fit=crop&w=1600&q=80",
+      "/FACILITIES/ICU.jpg",
     intro:
       "Our modern ICU is equipped with multi-para monitors, ventilators, defibrillators and infusion pumps, staffed round the clock by intensivists and critical-care trained nurses.",
     features: [
@@ -385,7 +385,7 @@ export const FACILITIES: Facility[] = [
     short: "Comfortable, well-monitored ward and room facilities.",
     icon: "🛏️",
     image:
-      "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1600&q=80",
+      "/FACILITIES/In-Patient%20Department%20(IPD).jpeg",
     intro:
       "General, semi-special, special and deluxe rooms designed for patient comfort and family convenience, with attentive nursing and dietary support.",
     features: [
@@ -402,7 +402,7 @@ export const FACILITIES: Facility[] = [
     short: "Walk-in emergency consultations, 24×7.",
     icon: "🚨",
     image:
-      "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?auto=format&fit=crop&w=1600&q=80",
+      "/FACILITIES/Emergency%20OPD.jpg",
     intro:
       "Dedicated emergency OPD for immediate triage, first-aid, stabilisation and specialist call-outs — supported by in-house lab, pharmacy and CT scan.",
     features: [
@@ -419,7 +419,7 @@ export const FACILITIES: Facility[] = [
     short: "Streamlined, low-paperwork critical admissions.",
     icon: "🏥",
     image:
-      "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1600&q=80",
+      "/FACILITIES/Emergency%20OPD.jpg",
     intro:
       "In emergencies, treatment begins first — paperwork is handled in parallel by our admissions team to save every possible minute for the patient.",
     features: [
@@ -436,7 +436,7 @@ export const FACILITIES: Facility[] = [
     short: "In-house pharmacy stocked with essential and emergency drugs.",
     icon: "💊",
     image:
-      "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=1600&q=80",
+      "/FACILITIES/Diagnostic%20Laboratory.jpeg",
     intro:
       "A round-the-clock pharmacy ensures every prescription — routine or emergency — is available on the spot, with pharmacist counselling for safe medication use.",
     features: [
@@ -453,7 +453,7 @@ export const FACILITIES: Facility[] = [
     short: "Reliable pathology and biochemistry, 24×7.",
     icon: "🧪",
     image:
-      "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1600&q=80",
+      "/FACILITIES/Diagnostic%20Laboratory.jpeg",
     intro:
       "Fully equipped laboratory offering routine and specialised investigations with quick turnaround times — essential for both emergency and elective care.",
     features: [
@@ -470,7 +470,7 @@ export const FACILITIES: Facility[] = [
     short: "In-house CT imaging for rapid diagnosis.",
     icon: "🩻",
     image:
-      "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1600&q=80",
+      "/FACILITIES/ICU.jpg",
     intro:
       "Our in-house CT scan supports fast decision-making for stroke, trauma, chest and abdominal emergencies — with radiologist reporting.",
     features: [
@@ -488,7 +488,7 @@ export const FACILITIES: Facility[] = [
     short: "Basic and advanced life-support ambulance on call.",
     icon: "🚑",
     image:
-      "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?auto=format&fit=crop&w=1600&q=80",
+      "/FACILITIES/Emergency%20OPD.jpg",
     intro:
       "Round-the-clock ambulance service with trained staff, oxygen and essential emergency equipment for safe pre-hospital transport.",
     features: [

@@ -5,6 +5,7 @@ import { AppointmentDialog } from "@/components/site/AppointmentDialog";
 import { Button } from "@/components/ui/button";
 import { SERVICES, FACILITIES, DOCTORS, TESTIMONIALS, HOSPITAL, whatsappLink } from "@/lib/site-data";
 import { Ambulance, HeartPulse, ShieldCheck, Sparkles, Clock, Users, Award, Stethoscope, ArrowRight } from "lucide-react";
+import { TestimonialSlider } from "@/components/site/TestimonialSlider";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -122,43 +123,82 @@ function Home() {
         </div>
       </section>
 
-      {/* Leadership / MD */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 mt-24">
-        <div className="rounded-3xl overflow-hidden bg-card border shadow-3d grid lg:grid-cols-2">
-          <div className="relative h-80 lg:h-auto">
-            <img src={DOCTORS[0].image} alt={DOCTORS[0].name} className="absolute inset-0 h-full w-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/40 to-transparent" />
-          </div>
-          <div className="p-8 sm:p-12">
-            <div className="text-xs font-semibold uppercase tracking-widest text-primary">Leadership</div>
-            <h2 className="mt-2 font-display text-3xl sm:text-4xl font-bold">A message from our Managing Director</h2>
-            <p className="mt-4 text-muted-foreground leading-relaxed">
-              "At Gravity Hospital, our greatest happiness is seeing patients recover safely and smile again. We combine advanced technology with compassionate, family-like care for every person who walks through our doors."
-            </p>
-            <div className="mt-6">
-              <div className="font-semibold">{DOCTORS[0].name}</div>
-              <div className="text-sm text-primary">{DOCTORS[0].role}</div>
+      {/* Leadership / MD Spotlight */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-24">
+        <div className="rounded-3xl overflow-hidden bg-card border border-border/80 shadow-3d grid lg:grid-cols-[440px_1fr]">
+          <div className="p-6 sm:p-8 flex items-center justify-center bg-gradient-to-br from-primary/5 via-muted/30 to-background border-b lg:border-b-0 lg:border-r border-border/60">
+            <div className="relative w-full aspect-[4/5] min-h-[480px] sm:min-h-[540px] overflow-hidden rounded-2xl shadow-3d border-4 border-white group">
+              <img
+                src={DOCTORS[0].image}
+                alt={DOCTORS[0].name}
+                className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute top-3 left-3 rounded-full bg-primary text-white px-3 py-1 text-xs font-bold uppercase tracking-wider shadow-md">
+                Managing Director
+              </div>
             </div>
-            <Link to="/doctors" className="mt-6 inline-flex items-center gap-1 text-primary font-medium">Meet our doctors <ArrowRight className="h-4 w-4" /></Link>
+          </div>
+
+          <div className="p-8 sm:p-12 flex flex-col justify-between">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-primary">
+                <Award className="h-3.5 w-3.5" /> Founder & Managing Director
+              </div>
+              <h2 className="mt-3 font-display text-3xl sm:text-4xl font-extrabold text-foreground">
+                A message from our Managing Director
+              </h2>
+              <div className="mt-1 text-base font-semibold text-primary">
+                {DOCTORS[0].name} · Honoured with the Samajratna Puraskar
+              </div>
+
+              <p className="mt-6 text-muted-foreground leading-relaxed text-base">
+                "At Gravity Hospital & Research Centre, our greatest happiness is seeing patients recover safely and smile again. We combine advanced technology with compassionate, family-like care for every person who walks through our doors."
+              </p>
+
+              <p className="mt-4 text-muted-foreground leading-relaxed text-base">
+                Under Dr. Pratap Somwanshi&apos;s leadership, Gravity Hospital has grown into a premier multi-speciality institution in Nigdi, PCMC—providing 24×7 emergency trauma care, Level-3 ICU, modular Operation Theatres, and cashless insurance coordination under one roof.
+              </p>
+
+              <div className="mt-6 grid grid-cols-3 gap-3 border-t border-border/80 pt-5">
+                <div className="rounded-xl bg-primary/5 p-3 text-center">
+                  <div className="font-display text-xl font-bold text-primary">15+</div>
+                  <div className="text-[11px] font-semibold text-muted-foreground mt-0.5">Years Experience</div>
+                </div>
+                <div className="rounded-xl bg-primary/5 p-3 text-center">
+                  <div className="font-display text-xl font-bold text-primary">25,000+</div>
+                  <div className="text-[11px] font-semibold text-muted-foreground mt-0.5">Patients Treated</div>
+                </div>
+                <div className="rounded-xl bg-primary/5 p-3 text-center">
+                  <div className="font-display text-xl font-bold text-primary">100%</div>
+                  <div className="text-[11px] font-semibold text-muted-foreground mt-0.5">Ethical Care</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8 pt-6 border-t border-border/80 flex flex-wrap items-center gap-4">
+              <AppointmentDialog>
+                <Button size="lg" className="bg-gradient-brand text-white shadow-elegant hover:opacity-95 btn-3d font-semibold px-7">
+                  Book Consultation
+                </Button>
+              </AppointmentDialog>
+              <Link to="/doctors">
+                <Button size="lg" variant="outline" className="border-primary/30 btn-3d font-semibold">
+                  Meet All 8 Doctors →
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 mt-24">
-        <SectionHeader eyebrow="Patient Stories" title="Trusted by families across PCMC" desc="Real experiences from patients and families who chose Gravity Hospital." />
-        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {TESTIMONIALS.slice(0, 6).map((t) => (
-            <div key={t.name} className="card-3d rounded-2xl border bg-card p-6 shadow-soft">
-              <Sparkles className="h-5 w-5 text-secondary" />
-              <p className="mt-3 text-sm leading-relaxed text-foreground/90">"{t.text}"</p>
-              <div className="mt-4 text-sm">
-                <div className="font-semibold">{t.name}</div>
-                <div className="text-muted-foreground text-xs">{t.location}</div>
-              </div>
-            </div>
-          ))}
-        </div>
+      {/* Testimonials Slider */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-24">
+        <SectionHeader
+          eyebrow="Patient Stories · Verified Reviews"
+          title="Trusted by families across PCMC"
+          desc="Real experiences from patients and families who chose Gravity Hospital & Research Centre."
+        />
+        <TestimonialSlider />
       </section>
 
       {/* Why Us */}

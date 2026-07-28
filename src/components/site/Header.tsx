@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X, ChevronDown, Phone } from "lucide-react";
-import logo from "@/assets/gravity-logo.png.asset.json";
+const logo = { url: "/logo.png" };
 import { SERVICES, FACILITIES, HOSPITAL } from "@/lib/site-data";
 import { AppointmentDialog } from "./AppointmentDialog";
 import { Button } from "@/components/ui/button";

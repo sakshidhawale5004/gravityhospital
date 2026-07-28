@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Phone, Mail, MapPin } from "lucide-react";
-import logo from "@/assets/gravity-logo.png.asset.json";
+const logo = { url: "/logo.png" };
 import { HOSPITAL, SERVICES, FACILITIES } from "@/lib/site-data";
 
 export function Footer() {

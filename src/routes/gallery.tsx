@@ -4,18 +4,18 @@ import { PageHero } from "@/components/site/PageHero";
 import { useState } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 
-// Import all gallery asset pointers
-const modules = import.meta.glob<{ default: { url: string } }>(
-  "@/assets/gallery/*.asset.json",
-  { eager: true }
-);
-const galleryImages = Object.entries(modules)
-  .sort(([a], [b]) => {
-    const na = parseInt(a.match(/g(\d+)/)?.[1] ?? "0");
-    const nb = parseInt(b.match(/g(\d+)/)?.[1] ?? "0");
-    return na - nb;
-  })
-  .map(([, m]) => m.default.url);
+// Direct static image paths that work cleanly across local and Vercel deployments
+const rawGalleryImages = [
+  "/gravity/gravity (4).jpg",
+  "/gravity/gravity (3).jpg",
+  "/gravity/dr pratap somwanshi.jpeg",
+  ...Array.from(
+    { length: 32 },
+    (_, i) => `/gallery/gallerypageimagesdon'taddinotherpages (${i + 1}).jpeg`
+  ),
+];
+
+const galleryImages = rawGalleryImages.map((p) => encodeURI(p));
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -36,24 +36,31 @@ function Gallery() {
       <PageHero
         eyebrow="Our Gallery"
         title={"A look inside Gravity Hospital" as unknown as string}
-        subtitle="Facilities, moments and community highlights from Gravity Hospital & Research Centre."
+        subtitle="Facilities, leadership moments and community highlights from Gravity Hospital & Research Centre."
         image={galleryImages[0]}
       />
 
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 mt-14">
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 [column-fill:_balance]">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {galleryImages.map((src, i) => (
             <button
               key={src}
               onClick={() => setActive(src)}
-              className="mb-4 block w-full break-inside-avoid rounded-2xl overflow-hidden border bg-card shadow-soft card-3d group"
+              className="group card-3d overflow-hidden rounded-3xl border border-border/80 bg-card p-3 sm:p-3.5 shadow-soft hover:shadow-3d hover:border-primary/40 transition-all duration-300 text-left"
             >
-              <img
-                src={src}
-                alt={`Gravity Hospital gallery ${i + 1}`}
-                loading="lazy"
-                className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
-              />
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-muted">
+                <img
+                  src={src}
+                  alt={`Gravity Hospital gallery photo ${i + 1}`}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                  <span className="text-xs font-semibold text-white bg-black/60 backdrop-blur-sm px-3 py-1 rounded-full">
+                    Click to view fullscreen
+                  </span>
+                </div>
+              </div>
             </button>
           ))}
         </div>
@@ -61,7 +68,7 @@ function Gallery() {
 
       <Dialog open={!!active} onOpenChange={(o) => !o && setActive(null)}>
         <DialogContent className="max-w-4xl bg-transparent border-0 p-0 shadow-none">
-          {active && <img src={active} alt="Gallery" className="w-full h-auto rounded-2xl shadow-3d" />}
+          {active && <img src={active} alt="Gallery view" className="w-full h-auto rounded-2xl shadow-3d" />}
         </DialogContent>
       </Dialog>
     </SiteLayout>

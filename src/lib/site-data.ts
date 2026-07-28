@@ -1,12 +1,3 @@
-import drPratap from "@/assets/doctors/dr-pratap-somwanshi.asset.json";
-import drShekhar from "@/assets/doctors/dr-shekhar-ralebhat.asset.json";
-import drMahesh from "@/assets/doctors/dr-mahesh-marne.asset.json";
-import drDeepak from "@/assets/doctors/dr-deepaklokhande.asset.json";
-import drVijay from "@/assets/doctors/dr-vijaylokhande.asset.json";
-import drDilip from "@/assets/doctors/drdilipjangude.asset.json";
-import drSubhash from "@/assets/doctors/drsubhashnikam.asset.json";
-import drVibhav from "@/assets/doctors/drvibhavsurve.asset.json";
-
 export const HOSPITAL = {
   name: "Gravity Hospital",
   full: "Gravity Hospital & Research Centre",
@@ -516,7 +507,7 @@ export const DOCTORS = [
     name: "Dr. Pratap Somwanshi",
     role: "Managing Director & Head of Hospital",
     speciality: "Hospital Leadership",
-    image: drPratap.url,
+    image: "/gravity/dr%20pratap%20somwanshi.jpeg",
     bio: "Managing Director of Gravity Hospital & Research Centre, leading a mission-driven team focused on accessible, high-quality, compassionate healthcare in PCMC, Pune.",
   },
   {
@@ -524,7 +515,7 @@ export const DOCTORS = [
     name: "Dr. Deepak Lokhande",
     role: "Consultant",
     speciality: "General & Laparoscopic Surgery",
-    image: drDeepak.url,
+    image: "/gravity/dr.deepaklokhande.jpeg",
     bio: "Experienced general and laparoscopic surgeon, known for calm reassurance in emergency surgical cases including appendicitis and hernia repair.",
   },
   {
@@ -532,7 +523,7 @@ export const DOCTORS = [
     name: "Dr. Vijay Lokhande",
     role: "Consultant",
     speciality: "Internal Medicine",
-    image: drVijay.url,
+    image: "/gravity/dr.vijaylokhande.jpeg",
     bio: "Internal medicine specialist with a focus on diabetes, hypertension and complex adult medical care.",
   },
   {
@@ -540,7 +531,7 @@ export const DOCTORS = [
     name: "Dr. Mahesh Marne",
     role: "Consultant",
     speciality: "General Medicine",
-    image: drMahesh.url,
+    image: "/gravity/dr.%20mahesh%20marne.jpeg",
     bio: "Trusted physician for gastroenterology-related medical concerns and everyday adult medicine.",
   },
   {
@@ -548,7 +539,7 @@ export const DOCTORS = [
     name: "Dr. Shekhar Ralebhat",
     role: "Consultant",
     speciality: "Orthopaedics",
-    image: drShekhar.url,
+    image: "/gravity/dr%20shekhar%20ralebhat.jpeg",
     bio: "Orthopaedic surgeon specialising in trauma, fractures and joint disorders.",
   },
   {
@@ -556,7 +547,7 @@ export const DOCTORS = [
     name: "Dr. Dilip Jangude",
     role: "Consultant",
     speciality: "Surgery",
-    image: drDilip.url,
+    image: "/gravity/drdilipjangude.jpeg",
     bio: "Surgical consultant with expertise in general and emergency surgical procedures.",
   },
   {
@@ -564,7 +555,7 @@ export const DOCTORS = [
     name: "Dr. Subhash Nikam",
     role: "Consultant",
     speciality: "Medicine",
-    image: drSubhash.url,
+    image: "/gravity/drsubhashnikam.jpeg",
     bio: "Physician with a strong focus on chronic disease management and preventive care.",
   },
   {
@@ -572,7 +563,7 @@ export const DOCTORS = [
     name: "Dr. Vibhav Surve",
     role: "Surgery Support",
     speciality: "Surgical Team",
-    image: drVibhav.url,
+    image: "/gravity/drvibhavsurve.jpeg",
     bio: "Part of the surgical care team, supporting perioperative management and patient recovery.",
   },
 ];

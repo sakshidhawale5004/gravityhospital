@@ -13,13 +13,17 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 w-full bg-white border-b border-border/80 shadow-sm">
+      {/* 24x7 Emergency & Announcement Ticker */}
+      <div className="bg-gradient-brand text-white text-xs font-semibold py-2 overflow-hidden flex whitespace-nowrap border-b border-white/10">
+        <div className="marquee inline-flex gap-8 items-center">
+          <span>🚨 24×7 EMERGENCY & TRAUMA CARE OPEN · AMBULANCE: +91 77965 13130 · CASHLESS INSURANCE ACROSS ALL MAJOR TPAs · 12+ ADVANCED SPECIALITIES UNDER ONE ROOF · ICU & SURGICAL UNITS FULLY OPERATIONAL · CALL: +91 84462 44344</span>
+          <span>🚨 24×7 EMERGENCY & TRAUMA CARE OPEN · AMBULANCE: +91 77965 13130 · CASHLESS INSURANCE ACROSS ALL MAJOR TPAs · 12+ ADVANCED SPECIALITIES UNDER ONE ROOF · ICU & SURGICAL UNITS FULLY OPERATIONAL · CALL: +91 84462 44344</span>
+        </div>
+      </div>
+
       <div className="mx-auto flex h-24 max-w-7xl items-center justify-between px-4 sm:px-6">
-        <Link to="/" className="flex items-center gap-3.5 group">
-          <img src={logo.url} alt="Gravity Hospital" className="h-16 w-16 sm:h-20 sm:w-20 object-contain transition-transform group-hover:scale-105" />
-          <div className="hidden sm:block leading-tight">
-            <div className="font-display text-xl font-bold text-foreground">Gravity Hospital</div>
-            <div className="text-xs uppercase tracking-widest text-primary font-semibold">& Research Centre</div>
-          </div>
+        <Link to="/" className="flex items-center group">
+          <img src={logo.url} alt="Gravity Hospital" className="h-16 w-auto sm:h-20 object-contain transition-transform group-hover:scale-105" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1.5">

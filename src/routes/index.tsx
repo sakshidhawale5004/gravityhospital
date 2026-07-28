@@ -179,8 +179,101 @@ function Home() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* PCMC Medical Advantage — 6 Pillars */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 mt-24">
+        <div className="text-center max-w-3xl mx-auto">
+          <div className="text-xs font-bold uppercase tracking-widest text-primary">Why Choose Gravity Hospital</div>
+          <h2 className="mt-2 font-display text-3xl sm:text-4xl font-extrabold">PCMC&apos;s Trusted Healthcare Advantage</h2>
+          <p className="mt-3 text-muted-foreground">
+            We combine tertiary hospital clinical standards with the genuine empathy and affordability of a community medical centre.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {[
+            {
+              title: "24×7 Emergency & ICU Readiness",
+              desc: "Round-the-clock emergency physicians, trauma nurses, and Level-3 intensive care units ready for critical admissions day or night.",
+              tag: "Always Open",
+            },
+            {
+              title: "Seamless Cashless Insurance",
+              desc: "Direct cashless tie-ups across all major health insurances and TPAs with a dedicated helpdesk for quick pre-authorizations.",
+              tag: "TPA Approved",
+            },
+            {
+              title: "Modern Modular Operation Theatres",
+              desc: "Sterile laminar airflow OTs equipped for general surgery, laparoscopy, orthopaedics, and emergency procedures.",
+              tag: "Surgical Safety",
+            },
+            {
+              title: "On-Site CT Scan & Diagnostics",
+              desc: "In-house digital imaging, CT scan, X-ray, ultrasound, and pathology laboratory for immediate, accurate diagnostic reports.",
+              tag: "Fast Diagnostics",
+            },
+            {
+              title: "Experienced Medical Consultants",
+              desc: "Senior hospital consultants and surgeons who explain every diagnosis and treatment option clearly to patients and families.",
+              tag: "Expert Care",
+            },
+            {
+              title: "100% Ethical & Transparent Billing",
+              desc: "Clear cost estimates, transparent room tariffs, and honest medical counseling with zero hidden hospital charges.",
+              tag: "Patient First",
+            },
+          ].map((adv) => (
+            <div key={adv.title} className="card-3d rounded-3xl border border-border/80 bg-card p-7 shadow-soft flex flex-col justify-between">
+              <div>
+                <div className="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
+                  {adv.tag}
+                </div>
+                <h3 className="mt-4 font-display text-xl font-bold text-foreground">{adv.title}</h3>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{adv.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* How We Serve Your Family — 3 Pathways */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 mt-24">
+        <div className="rounded-3xl border border-border/80 bg-gradient-to-br from-primary/5 via-background to-muted/30 p-8 sm:p-12 shadow-soft">
+          <div className="max-w-2xl">
+            <div className="text-xs font-bold uppercase tracking-widest text-primary">Patient Pathways</div>
+            <h2 className="mt-2 font-display text-3xl font-extrabold text-foreground">How we serve your family</h2>
+            <p className="mt-2 text-muted-foreground">Tailored clinical workflows designed for convenience, safety, and rapid recovery.</p>
+          </div>
+
+          <div className="mt-10 grid gap-6 sm:grid-cols-3">
+            {[
+              {
+                step: "01",
+                name: "Emergency & Trauma Care",
+                desc: "Walk in any time 24×7. Immediate emergency triage, rapid stabilization, and direct specialist intervention without delay.",
+              },
+              {
+                step: "02",
+                name: "Planned Admissions & Surgery",
+                desc: "Consult our surgeons in OPD, receive transparent cost counseling, and get complete cashless insurance support before admission.",
+              },
+              {
+                step: "03",
+                name: "Speciality OPD & Diagnostics",
+                desc: "Book appointments with consultants across 12+ specialities with same-day diagnostic testing and pharmacy access under one roof.",
+              },
+            ].map((p) => (
+              <div key={p.step} className="rounded-2xl bg-white p-6 border border-border/80 shadow-sm relative">
+                <div className="font-display text-3xl font-extrabold text-primary/20 absolute top-4 right-5">{p.step}</div>
+                <h3 className="font-display font-bold text-lg text-foreground relative z-10">{p.name}</h3>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed relative z-10">{p.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 mt-24 mb-16">
         <div className="rounded-3xl overflow-hidden relative bg-gradient-brand p-10 sm:p-16 text-white shadow-3d">
           <div className="absolute -top-16 -right-16 h-64 w-64 rounded-full bg-white/10 blur-3xl float-slow" />
           <div className="absolute -bottom-16 -left-16 h-64 w-64 rounded-full bg-secondary/40 blur-3xl float-medium" />
@@ -189,12 +282,14 @@ function Home() {
               <h2 className="font-display text-3xl sm:text-4xl font-bold">Need care today?</h2>
               <p className="mt-3 text-white/85 max-w-xl">Request an appointment or chat with us on WhatsApp — our team responds quickly, 24×7 for emergencies.</p>
             </div>
-            <div className="flex flex-wrap gap-3 lg:justify-end">
+            <div className="flex flex-wrap gap-4 lg:justify-end">
               <AppointmentDialog>
-                <Button size="lg" className="bg-white text-primary hover:bg-white/90">Book Appointment</Button>
+                <Button size="lg" className="bg-white text-primary hover:bg-white/90 font-bold px-8 shadow-lg">Book Appointment</Button>
               </AppointmentDialog>
               <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">WhatsApp</Button>
+                <Button size="lg" className="bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold shadow-lg px-8 border-0">
+                  WhatsApp Us
+                </Button>
               </a>
             </div>
           </div>

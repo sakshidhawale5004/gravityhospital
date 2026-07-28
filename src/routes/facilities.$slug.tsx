@@ -36,16 +36,16 @@ function FacilityDetail() {
   return (
     <SiteLayout>
       <PageHero
-        eyebrow={`${f.icon}  Facility · 24×7`}
+        eyebrow="24×7 Emergency & Critical Facility"
         title={f.name}
         subtitle={f.intro}
         image={f.image}
       >
         <AppointmentDialog>
-          <Button size="lg" className="bg-gradient-brand text-white shadow-elegant">Book Appointment</Button>
+          <Button size="lg" className="bg-gradient-brand text-white shadow-elegant hover:opacity-95 btn-3d font-semibold">Book Appointment</Button>
         </AppointmentDialog>
         <a href={`tel:${HOSPITAL.phones[0].replace(/\s/g, "")}`}>
-          <Button size="lg" variant="outline" className="border-primary/30"><Phone className="h-4 w-4 mr-2" /> Call now</Button>
+          <Button size="lg" variant="outline" className="border-primary/30 btn-3d font-semibold"><Phone className="h-4 w-4 mr-2" /> Call now</Button>
         </a>
       </PageHero>
 

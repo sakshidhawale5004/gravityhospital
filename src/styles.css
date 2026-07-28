@@ -141,26 +141,57 @@
   .card-3d {
     transform-style: preserve-3d;
     transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
-                box-shadow 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+                box-shadow 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+                border-color 0.5s ease;
+    will-change: transform;
   }
   .card-3d:hover {
-    transform: perspective(1000px) rotateX(4deg) rotateY(-6deg) translateY(-6px);
-    box-shadow: var(--shadow-3d);
+    transform: perspective(1100px) rotateX(5deg) rotateY(-7deg) translateY(-8px) scale(1.02);
+    box-shadow: 0 25px 50px -12px rgba(109, 40, 217, 0.18), 0 10px 20px -5px rgba(0, 0, 0, 0.08);
   }
+
+  /* Hero 3D floating frame */
+  .hero-3d-card {
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease;
+    box-shadow: 0 30px 60px -15px rgba(109, 40, 217, 0.25), 0 15px 30px -10px rgba(249, 115, 22, 0.2);
+  }
+  .hero-3d-card:hover {
+    transform: perspective(1200px) rotateX(3deg) rotateY(-5deg) translateY(-6px) scale(1.015);
+    box-shadow: 0 40px 80px -20px rgba(109, 40, 217, 0.35), 0 20px 40px -12px rgba(249, 115, 22, 0.25);
+  }
+
+  /* 3D Button styles */
+  .btn-3d {
+    position: relative;
+    transform: translateY(0);
+    box-shadow: 0 4px 14px 0 rgba(109, 40, 217, 0.35), inset 0 1px 0 0 rgba(255, 255, 255, 0.3);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .btn-3d:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px 0 rgba(109, 40, 217, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
+  }
+  .btn-3d:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 8px 0 rgba(109, 40, 217, 0.3);
+  }
+
   .tilt {
     transition: transform 0.4s ease;
   }
   .tilt:hover { transform: perspective(800px) rotateY(-6deg) rotateX(3deg) scale(1.03); }
 
   .glass {
-    background: color-mix(in oklab, var(--card) 70%, transparent);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    background: color-mix(in oklab, var(--card) 75%, transparent);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
   }
   .ring-brand { box-shadow: 0 0 0 1px oklch(0.42 0.19 320 / 0.3); }
 
   .float-slow { animation: floatSlow 6s ease-in-out infinite; }
   .float-medium { animation: floatSlow 4.5s ease-in-out infinite; }
+  .float-3d { animation: float3d 7s ease-in-out infinite; }
   .pulse-glow { animation: pulseGlow 3s ease-in-out infinite; }
   .marquee { animation: marquee 40s linear infinite; }
 
@@ -170,6 +201,10 @@
 @keyframes floatSlow {
   0%, 100% { transform: translateY(0) rotate(0); }
   50% { transform: translateY(-14px) rotate(1.5deg); }
+}
+@keyframes float3d {
+  0%, 100% { transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px); }
+  50% { transform: perspective(1000px) rotateX(4deg) rotateY(-5deg) translateY(-12px); }
 }
 @keyframes pulseGlow {
   0%, 100% { box-shadow: 0 0 0 0 oklch(0.72 0.18 45 / 0.5); }

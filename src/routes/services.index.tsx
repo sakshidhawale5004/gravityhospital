@@ -177,9 +177,6 @@ function ServicesIndex() {
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
-                <div className="absolute top-4 left-4 rounded-full bg-white/95 px-3 py-1 text-xl shadow-sm">
-                  {s.icon}
-                </div>
                 <div className="absolute bottom-3 left-4 text-xs font-semibold text-white/90 bg-black/40 backdrop-blur-sm px-2.5 py-1 rounded-md">
                   {s.category}
                 </div>

@@ -25,13 +25,13 @@ function Home() {
         eyebrow="Multi-Speciality Hospital · Nigdi, PCMC"
         title={<>Compassionate care,<br/><span className="text-gradient-brand">advanced medicine.</span></> as unknown as string}
         subtitle="Gravity Hospital & Research Centre delivers 24×7 emergency care, ICU, surgery and 12+ specialities under one roof — with the warmth of a family hospital."
-        image="https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?auto=format&fit=crop&w=1600&q=80"
+        image="/gravity/gravity%20(1).jpg"
       >
         <AppointmentDialog>
-          <Button size="lg" className="bg-gradient-brand text-white shadow-elegant">Book Appointment</Button>
+          <Button size="lg" className="bg-gradient-brand text-white shadow-elegant hover:opacity-95 btn-3d font-semibold px-7">Book Appointment</Button>
         </AppointmentDialog>
         <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
-          <Button size="lg" variant="outline" className="border-primary/30">WhatsApp Us</Button>
+          <Button size="lg" variant="outline" className="border-primary/30 btn-3d font-semibold px-7">WhatsApp Us</Button>
         </a>
       </PageHero>
 
@@ -44,9 +44,9 @@ function Home() {
             { icon: Stethoscope, title: "Book OPD", desc: "12+ specialities", href: "/appointment" },
             { icon: ShieldCheck, title: "Insurance & Cashless", desc: "Major TPAs accepted", href: "/faq" },
           ].map((c) => (
-            <Link key={c.title} to={c.href} className="card-3d rounded-2xl bg-card p-5 border shadow-soft hover:shadow-3d">
+            <Link key={c.title} to={c.href} className="card-3d rounded-2xl bg-card p-6 border border-border/80 shadow-soft flex flex-col justify-between">
               <c.icon className="h-8 w-8 text-primary" />
-              <div className="mt-3 font-semibold">{c.title}</div>
+              <div className="mt-3 font-display font-bold text-foreground">{c.title}</div>
               <div className="text-sm text-muted-foreground">{c.desc}</div>
             </Link>
           ))}
@@ -83,7 +83,7 @@ function Home() {
               <div className="relative h-52 overflow-hidden bg-muted">
                 <img src={s.image} alt={s.name} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
-                <div className="absolute top-4 left-4 rounded-full bg-white/95 px-3 py-1 text-xl shadow-sm">{s.icon}</div>
+                <div className="absolute top-3 left-4 text-xs font-semibold text-white/90 bg-black/40 backdrop-blur-sm px-2.5 py-1 rounded-md">{s.category}</div>
               </div>
               <div className="p-6 sm:p-7 flex flex-col justify-between flex-1">
                 <div>
@@ -111,7 +111,9 @@ function Home() {
               className="card-3d flex flex-col justify-between rounded-2xl border border-border/80 bg-card p-6 sm:p-7 shadow-soft hover:shadow-3d hover:border-primary/40 transition-all duration-300 group h-full"
             >
               <div>
-                <div className="text-3xl sm:text-4xl">{f.icon}</div>
+                <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                  <Sparkles className="h-6 w-6" />
+                </div>
                 <h3 className="mt-4 font-display text-lg font-bold group-hover:text-primary transition-colors">{f.name}</h3>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{f.short}</p>
               </div>

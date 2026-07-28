@@ -30,14 +30,14 @@ export function Header() {
             open={servicesOpen}
             setOpen={setServicesOpen}
             baseHref="/services"
-            items={SERVICES.map((s) => ({ href: `/services/${s.slug}`, label: s.name, icon: s.icon }))}
+            items={SERVICES.map((s) => ({ href: `/services/${s.slug}`, label: s.name }))}
           />
           <Dropdown
             label="Facilities"
             open={facilitiesOpen}
             setOpen={setFacilitiesOpen}
             baseHref="/facilities"
-            items={FACILITIES.map((f) => ({ href: `/facilities/${f.slug}`, label: f.name, icon: f.icon }))}
+            items={FACILITIES.map((f) => ({ href: `/facilities/${f.slug}`, label: f.name }))}
           />
           <NavLink to="/doctors">Doctors</NavLink>
           <NavLink to="/gallery">Gallery</NavLink>
@@ -50,7 +50,7 @@ export function Header() {
             <Phone className="h-4 w-4" /> {HOSPITAL.phones[0]}
           </a>
           <AppointmentDialog>
-            <Button className="bg-gradient-brand text-white shadow-elegant hover:opacity-95">Book Appointment</Button>
+            <Button className="bg-gradient-brand text-white shadow-elegant hover:opacity-95 btn-3d font-semibold">Book Appointment</Button>
           </AppointmentDialog>
         </div>
 
@@ -70,7 +70,7 @@ export function Header() {
                 <MobileLink to="/services" onClick={() => setOpen(false)}>All services</MobileLink>
                 {SERVICES.map((s) => (
                   <MobileLink key={s.slug} to={`/services/${s.slug}`} onClick={() => setOpen(false)}>
-                    {s.icon} {s.name}
+                    {s.name}
                   </MobileLink>
                 ))}
               </div>
@@ -81,7 +81,7 @@ export function Header() {
                 <MobileLink to="/facilities" onClick={() => setOpen(false)}>All facilities</MobileLink>
                 {FACILITIES.map((f) => (
                   <MobileLink key={f.slug} to={`/facilities/${f.slug}`} onClick={() => setOpen(false)}>
-                    {f.icon} {f.name}
+                    {f.name}
                   </MobileLink>
                 ))}
               </div>
@@ -129,7 +129,7 @@ function Dropdown({
   open: boolean;
   setOpen: (v: boolean) => void;
   baseHref: string;
-  items: { href: string; label: string; icon?: string }[];
+  items: { href: string; label: string }[];
 }) {
   return (
     <div className="relative" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
@@ -141,15 +141,15 @@ function Dropdown({
       </Link>
       {open && (
         <div className="absolute left-0 top-full pt-2 w-[520px] animate-fade-in-up">
-          <div className="rounded-2xl border bg-popover p-3 shadow-3d grid grid-cols-2 gap-1">
+          <div className="rounded-2xl border bg-popover p-3 shadow-3d grid grid-cols-2 gap-1.5">
             {items.map((it) => (
               <Link
                 key={it.href}
                 to={it.href}
-                className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm hover:bg-primary/10 hover:text-primary"
+                className="group flex items-center gap-2.5 rounded-xl px-3.5 py-2.5 text-sm font-medium hover:bg-primary/10 hover:text-primary transition-colors"
               >
-                <span className="text-lg">{it.icon}</span>
-                <span className="font-medium">{it.label}</span>
+                <div className="h-1.5 w-1.5 rounded-full bg-primary/40 group-hover:bg-primary group-hover:scale-125 transition-all" />
+                <span>{it.label}</span>
               </Link>
             ))}
           </div>

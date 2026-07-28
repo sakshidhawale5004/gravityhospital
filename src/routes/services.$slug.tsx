@@ -36,16 +36,16 @@ function ServiceDetail() {
   return (
     <SiteLayout>
       <PageHero
-        eyebrow={`${s.icon}  Speciality`}
+        eyebrow={`${s.category} · Speciality`}
         title={s.name}
         subtitle={s.intro}
         image={s.image}
       >
         <AppointmentDialog>
-          <Button size="lg" className="bg-gradient-brand text-white shadow-elegant">Book Appointment</Button>
+          <Button size="lg" className="bg-gradient-brand text-white shadow-elegant hover:opacity-95 btn-3d font-semibold">Book Appointment</Button>
         </AppointmentDialog>
         <a href={whatsappLink(`Hi, I'd like to enquire about ${s.name}.`)} target="_blank" rel="noopener noreferrer">
-          <Button size="lg" variant="outline" className="border-primary/30">WhatsApp Enquiry</Button>
+          <Button size="lg" variant="outline" className="border-primary/30 btn-3d font-semibold">WhatsApp Enquiry</Button>
         </a>
       </PageHero>
 
@@ -174,7 +174,7 @@ function ServiceDetail() {
               <div className="relative h-44 overflow-hidden bg-muted">
                 <img src={r.image} alt={r.name} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
-                <div className="absolute top-3 left-3 rounded-full bg-white/95 px-2.5 py-0.5 text-lg shadow-sm">{r.icon}</div>
+                <div className="absolute top-3 left-3 text-xs font-semibold text-white/90 bg-black/40 backdrop-blur-sm px-2.5 py-1 rounded-md">{r.category}</div>
               </div>
               <div className="p-5 flex flex-col justify-between flex-1">
                 <div>

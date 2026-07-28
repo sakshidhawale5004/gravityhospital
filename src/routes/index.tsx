@@ -25,7 +25,7 @@ function Home() {
         eyebrow="Multi-Speciality Hospital · Nigdi, PCMC"
         title={<>Compassionate care,<br/><span className="text-gradient-brand">advanced medicine.</span></> as unknown as string}
         subtitle="Gravity Hospital & Research Centre delivers 24×7 emergency care, ICU, surgery and 12+ specialities under one roof — with the warmth of a family hospital."
-        image="/gravity/gravity%20(1).jpg"
+        image="/hospitalbuilding.jpeg"
       >
         <AppointmentDialog>
           <Button size="lg" className="bg-gradient-brand text-white shadow-elegant hover:opacity-95 btn-3d font-semibold px-7">Book Appointment</Button>

@@ -1,0 +1,186 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Sora", "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Manrope", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-brand-soft: var(--brand-soft);
+}
+
+:root {
+  --radius: 0.875rem;
+
+  /* Brand: purple + orange from Gravity logo */
+  --brand: oklch(0.42 0.19 320);            /* deep purple */
+  --brand-foreground: oklch(0.98 0.005 320);
+  --brand-soft: oklch(0.96 0.02 320);
+
+  --background: oklch(0.995 0.003 320);
+  --foreground: oklch(0.18 0.03 300);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.03 300);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.03 300);
+
+  --primary: oklch(0.42 0.19 320);           /* purple */
+  --primary-foreground: oklch(0.99 0.003 320);
+  --secondary: oklch(0.72 0.18 45);          /* orange */
+  --secondary-foreground: oklch(0.15 0.02 45);
+
+  --muted: oklch(0.965 0.008 310);
+  --muted-foreground: oklch(0.45 0.02 300);
+  --accent: oklch(0.72 0.18 45);
+  --accent-foreground: oklch(0.15 0.02 45);
+
+  --destructive: oklch(0.6 0.22 27);
+  --destructive-foreground: oklch(0.99 0.003 27);
+
+  --border: oklch(0.92 0.015 310);
+  --input: oklch(0.92 0.015 310);
+  --ring: oklch(0.42 0.19 320);
+
+  /* Gradients & shadows */
+  --gradient-brand: linear-gradient(135deg, oklch(0.45 0.2 320), oklch(0.72 0.18 45));
+  --gradient-hero: radial-gradient(1200px 600px at 10% 0%, oklch(0.95 0.05 320 / 0.6), transparent 60%),
+                   radial-gradient(900px 500px at 100% 20%, oklch(0.95 0.08 45 / 0.5), transparent 60%),
+                   linear-gradient(180deg, oklch(0.99 0.005 320), oklch(0.97 0.01 320));
+  --gradient-purple: linear-gradient(135deg, oklch(0.35 0.18 320), oklch(0.55 0.22 315));
+  --gradient-orange: linear-gradient(135deg, oklch(0.72 0.18 45), oklch(0.8 0.16 55));
+
+  --shadow-elegant: 0 10px 40px -10px oklch(0.42 0.19 320 / 0.25);
+  --shadow-soft: 0 8px 24px -8px oklch(0.42 0.19 320 / 0.12);
+  --shadow-3d: 0 20px 60px -20px oklch(0.42 0.19 320 / 0.35),
+               0 8px 24px -8px oklch(0.72 0.18 45 / 0.2);
+}
+
+.dark {
+  --background: oklch(0.14 0.02 300);
+  --foreground: oklch(0.98 0.005 320);
+  --card: oklch(0.2 0.03 300);
+  --card-foreground: oklch(0.98 0.005 320);
+  --popover: oklch(0.2 0.03 300);
+  --popover-foreground: oklch(0.98 0.005 320);
+  --primary: oklch(0.72 0.18 45);
+  --primary-foreground: oklch(0.15 0.02 45);
+  --secondary: oklch(0.55 0.22 315);
+  --secondary-foreground: oklch(0.98 0.005 320);
+  --muted: oklch(0.25 0.03 300);
+  --muted-foreground: oklch(0.72 0.02 300);
+  --accent: oklch(0.72 0.18 45);
+  --accent-foreground: oklch(0.15 0.02 45);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.72 0.18 45);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .bg-gradient-brand { background-image: var(--gradient-brand); }
+  .bg-gradient-hero { background-image: var(--gradient-hero); }
+  .bg-gradient-purple { background-image: var(--gradient-purple); }
+  .bg-gradient-orange { background-image: var(--gradient-orange); }
+  .text-gradient-brand {
+    background-image: var(--gradient-brand);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .shadow-elegant { box-shadow: var(--shadow-elegant); }
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-3d { box-shadow: var(--shadow-3d); }
+
+  /* 3D card effect */
+  .card-3d {
+    transform-style: preserve-3d;
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+                box-shadow 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .card-3d:hover {
+    transform: perspective(1000px) rotateX(4deg) rotateY(-6deg) translateY(-6px);
+    box-shadow: var(--shadow-3d);
+  }
+  .tilt {
+    transition: transform 0.4s ease;
+  }
+  .tilt:hover { transform: perspective(800px) rotateY(-6deg) rotateX(3deg) scale(1.03); }
+
+  .glass {
+    background: color-mix(in oklab, var(--card) 70%, transparent);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+  .ring-brand { box-shadow: 0 0 0 1px oklch(0.42 0.19 320 / 0.3); }
+
+  .float-slow { animation: floatSlow 6s ease-in-out infinite; }
+  .float-medium { animation: floatSlow 4.5s ease-in-out infinite; }
+  .pulse-glow { animation: pulseGlow 3s ease-in-out infinite; }
+  .marquee { animation: marquee 40s linear infinite; }
+
+  .clip-arc { clip-path: ellipse(120% 100% at 50% 0%); }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-14px) rotate(1.5deg); }
+}
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 oklch(0.72 0.18 45 / 0.5); }
+  50% { box-shadow: 0 0 0 18px oklch(0.72 0.18 45 / 0); }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up { animation: fadeInUp 0.7s ease-out both; }

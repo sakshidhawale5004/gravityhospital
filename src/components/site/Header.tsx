@@ -13,16 +13,16 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 w-full bg-white border-b border-border/80 shadow-sm">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6">
-        <Link to="/" className="flex items-center gap-3 group">
-          <img src={logo.url} alt="Gravity Hospital" className="h-12 w-12 object-contain transition-transform group-hover:scale-105" />
+      <div className="mx-auto flex h-24 max-w-7xl items-center justify-between px-4 sm:px-6">
+        <Link to="/" className="flex items-center gap-3.5 group">
+          <img src={logo.url} alt="Gravity Hospital" className="h-16 w-16 sm:h-20 sm:w-20 object-contain transition-transform group-hover:scale-105" />
           <div className="hidden sm:block leading-tight">
-            <div className="font-display text-lg font-bold text-foreground">Gravity Hospital</div>
-            <div className="text-[11px] uppercase tracking-widest text-primary">& Research Centre</div>
+            <div className="font-display text-xl font-bold text-foreground">Gravity Hospital</div>
+            <div className="text-xs uppercase tracking-widest text-primary font-semibold">& Research Centre</div>
           </div>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-1">
+        <nav className="hidden lg:flex items-center gap-1.5">
           <NavLink to="/">Home</NavLink>
           <NavLink to="/about">About</NavLink>
           <Dropdown
@@ -45,12 +45,12 @@ export function Header() {
           <NavLink to="/contact">Contact</NavLink>
         </nav>
 
-        <div className="hidden lg:flex items-center gap-3">
-          <a href={`tel:${HOSPITAL.phones[0].replace(/\s/g, "")}`} className="flex items-center gap-2 text-sm font-medium text-foreground/80 hover:text-primary">
-            <Phone className="h-4 w-4" /> {HOSPITAL.phones[0]}
+        <div className="hidden lg:flex items-center gap-4">
+          <a href={`tel:${HOSPITAL.phones[0].replace(/\s/g, "")}`} className="flex items-center gap-2 text-sm font-semibold text-foreground/80 hover:text-primary transition-colors">
+            <Phone className="h-4 w-4 text-primary" /> {HOSPITAL.phones[0]}
           </a>
           <AppointmentDialog>
-            <Button className="bg-gradient-brand text-white shadow-elegant hover:opacity-95 btn-3d font-semibold">Book Appointment</Button>
+            <Button size="lg" className="bg-gradient-brand text-white shadow-elegant hover:opacity-95 btn-3d font-semibold px-6">Book Appointment</Button>
           </AppointmentDialog>
         </div>
 
@@ -90,7 +90,6 @@ export function Header() {
             <MobileLink to="/gallery" onClick={() => setOpen(false)}>Gallery</MobileLink>
             <MobileLink to="/faq" onClick={() => setOpen(false)}>FAQ</MobileLink>
             <MobileLink to="/contact" onClick={() => setOpen(false)}>Contact</MobileLink>
-            <MobileLink to="/appointment" onClick={() => setOpen(false)}>Book Appointment</MobileLink>
           </div>
         </div>
       )}
@@ -102,7 +101,7 @@ function NavLink({ to, children }: { to: string; children: React.ReactNode }) {
   return (
     <Link
       to={to}
-      className="rounded-md px-3 py-2 text-sm font-medium text-foreground/80 hover:text-primary hover:bg-primary/5 transition-colors"
+      className="rounded-lg px-3.5 py-2.5 text-sm font-semibold text-foreground/80 hover:text-primary hover:bg-primary/5 transition-colors"
       activeProps={{ className: "text-primary bg-primary/10" }}
     >
       {children}
@@ -131,25 +130,50 @@ function Dropdown({
   baseHref: string;
   items: { href: string; label: string }[];
 }) {
+  const timerRef = useState<{ current: NodeJS.Timeout | null }>({ current: null })[0];
+
+  const handleMouseEnter = () => {
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+      timerRef.current = null;
+    }
+    setOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    timerRef.current = setTimeout(() => {
+      setOpen(false);
+    }, 220);
+  };
+
   return (
-    <div className="relative" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
+    <div
+      className="relative py-2"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <Link
         to={baseHref}
-        className="flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-foreground/80 hover:text-primary hover:bg-primary/5"
+        className="flex items-center gap-1 rounded-lg px-3.5 py-2.5 text-sm font-semibold text-foreground/80 hover:text-primary hover:bg-primary/5 transition-colors"
       >
         {label} <ChevronDown className="h-4 w-4" />
       </Link>
       {open && (
-        <div className="absolute left-0 top-full pt-2 w-[520px] animate-fade-in-up">
-          <div className="rounded-2xl border border-border/80 bg-white p-3 shadow-3d grid grid-cols-2 gap-1.5">
+        <div
+          className="absolute left-0 top-[calc(100%-8px)] pt-3 w-[560px] z-50 animate-fade-in-up"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          <div className="rounded-3xl border border-border/80 bg-white p-3.5 shadow-3d grid grid-cols-2 gap-2">
             {items.map((it) => (
               <Link
                 key={it.href}
                 to={it.href}
-                className="group flex items-center gap-2.5 rounded-xl px-3.5 py-2.5 text-sm font-medium hover:bg-primary/10 hover:text-primary transition-colors"
+                onClick={() => setOpen(false)}
+                className="group flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-medium hover:bg-primary/10 hover:text-primary transition-all duration-200"
               >
-                <div className="h-1.5 w-1.5 rounded-full bg-primary/40 group-hover:bg-primary group-hover:scale-125 transition-all" />
-                <span>{it.label}</span>
+                <div className="h-2 w-2 rounded-full bg-primary/40 group-hover:bg-primary group-hover:scale-125 transition-all" />
+                <span className="font-semibold">{it.label}</span>
               </Link>
             ))}
           </div>

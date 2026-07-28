@@ -28,7 +28,7 @@ function About() {
         eyebrow="About Us · Gravity Hospital & Research Centre"
         title={"Advanced multi-speciality healthcare with a family heart" as unknown as string}
         subtitle={`${HOSPITAL.full} in Nigdi, PCMC, Pune is built to deliver ethical, evidence-based medical care with transparency, compassion, and uncompromising clinical standards.`}
-        image="/hospitalnewimage.jpeg"
+        image="/BUILDING%20IMage%20for%20about%20page.jpeg"
       />
 
       {/* Founder & Managing Director Spotlight */}
@@ -118,8 +118,8 @@ function About() {
           </div>
         </div>
         <div className="rounded-3xl overflow-hidden shadow-3d border border-border/80 bg-card p-4">
-          <div className="rounded-2xl overflow-hidden h-96">
-            <img src="/BUILDING%20IMage%20for%20about%20page.jpeg" alt="Gravity Hospital Main Building" className="w-full h-full object-cover" />
+          <div className="rounded-2xl overflow-hidden min-h-[420px] sm:min-h-[480px] aspect-[4/3]">
+            <img src="/aboutpageimage.webp" alt="Gravity Hospital Care & Empathy" className="w-full h-full object-cover object-center" />
           </div>
         </div>
       </section>
@@ -137,19 +137,19 @@ function About() {
         <div className="mt-12 grid gap-7 sm:grid-cols-3">
           {[
             {
-              src: "/BUILDING%20IMage%20for%20about%20page.jpeg",
-              title: "Main Hospital Building",
+              src: "/gallery/gallerypageimagesdon%27taddinotherpages%20(1).jpeg",
+              title: "Main Hospital Building & Entrance",
               desc: "Primary patient entrance with 0-minute emergency walk-in access and 24×7 ambulance bay.",
             },
             {
-              src: "/aboutpageimage.webp",
+              src: "/gallery/gallerypageimagesdon%27taddinotherpages%20(2).jpeg",
               title: "Multi-Speciality OPD & Diagnostics",
               desc: "Consultation chambers for 12+ specialities, digital radiology, and modern diagnostic laboratory.",
             },
             {
-              src: "/hospitalnewimage.jpeg",
-              title: "Gravity Hospital Campus",
-              desc: "Our landmark institution in Nigdi, Pradhikaran serving families across Pimpri-Chinchwad and Pune.",
+              src: "/gallery/gallerypageimagesdon%27taddinotherpages%20(3).jpeg",
+              title: "Critical Care ICU & Surgical Wing",
+              desc: "Level-3 intensive care unit, modular operating theatres, and 24×7 trauma support.",
             },
           ].map((item) => (
             <div key={item.title} className="card-3d rounded-3xl overflow-hidden border border-border/80 bg-card shadow-soft hover:shadow-3d transition-all duration-300 flex flex-col justify-between">

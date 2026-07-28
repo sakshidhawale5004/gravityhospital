@@ -21,16 +21,16 @@ export function Header() {
         </div>
       </div>
 
-      <div className="mx-auto flex h-28 sm:h-32 max-w-7xl items-center justify-between px-4 sm:px-6">
-        <Link to="/" className="flex items-center group py-2">
+      <div className="mx-auto flex h-28 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <Link to="/" className="flex items-center shrink-0 group">
           <img
             src={logo.url}
             alt="Gravity Hospital"
-            className="h-20 sm:h-24 md:h-28 w-auto min-w-[210px] sm:min-w-[280px] object-contain transition-transform group-hover:scale-105"
+            className="h-24 sm:h-28 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
           />
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-1.5">
+        <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
           <NavLink to="/">Home</NavLink>
           <NavLink to="/about">About</NavLink>
           <Dropdown

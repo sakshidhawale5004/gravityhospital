@@ -39,7 +39,7 @@ export function PageHero({
         {image && (
           <div className="lg:col-span-6 relative animate-fade-in-up">
             <div className="relative rounded-3xl overflow-hidden hero-3d-card border border-border/60 bg-card">
-              <img src={image} alt="Gravity Hospital" className="h-[420px] w-full object-cover transition-transform duration-700 hover:scale-105" />
+              <img src={image} alt="Gravity Hospital" className="min-h-[440px] sm:min-h-[520px] lg:min-h-[560px] w-full aspect-[4/3] object-cover object-center transition-transform duration-700 hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 via-transparent to-black/10" />
 
               {/* 3D Floating Glass Badge Overlay */}

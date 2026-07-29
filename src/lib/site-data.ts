@@ -8,6 +8,7 @@ export const HOSPITAL = {
   email: "gravityhospital@gmail.com",
   website: "www.gravityhospital.com",
   whatsapp: "917796513130", // digits only, no +
+  instagram: "https://www.instagram.com/gravityhospital_pcmc/",
 };
 
 export const whatsappLink = (msg = "Hi Gravity Hospital, I'd like to enquire.") =>

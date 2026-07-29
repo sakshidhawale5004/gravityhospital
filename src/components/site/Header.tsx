@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Menu, X, ChevronDown, Phone } from "lucide-react";
+import { Menu, X, ChevronDown, Phone, Instagram } from "lucide-react";
 const logo = { url: "/logo.png" };
 import { SERVICES, FACILITIES, HOSPITAL } from "@/lib/site-data";
 import { AppointmentDialog } from "./AppointmentDialog";
@@ -57,6 +57,17 @@ export function Header() {
           <a href={`tel:${HOSPITAL.phones[0].replace(/\s/g, "")}`} className="flex items-center gap-2 text-sm font-semibold text-foreground/80 hover:text-primary transition-colors">
             <Phone className="h-4 w-4 text-primary" /> {HOSPITAL.phones[0]}
           </a>
+          {HOSPITAL.instagram && (
+            <a
+              href={HOSPITAL.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center h-9 w-9 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors"
+              aria-label="Instagram"
+            >
+              <Instagram className="h-4 w-4" />
+            </a>
+          )}
           <AppointmentDialog>
             <Button size="lg" className="bg-gradient-brand text-white shadow-elegant hover:opacity-95 btn-3d font-semibold px-6">Book Appointment</Button>
           </AppointmentDialog>
@@ -98,6 +109,17 @@ export function Header() {
             <MobileLink to="/gallery" onClick={() => setOpen(false)}>Gallery</MobileLink>
             <MobileLink to="/faq" onClick={() => setOpen(false)}>FAQ</MobileLink>
             <MobileLink to="/contact" onClick={() => setOpen(false)}>Contact</MobileLink>
+            {HOSPITAL.instagram && (
+              <a
+                href={HOSPITAL.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
+                onClick={() => setOpen(false)}
+              >
+                <Instagram className="h-4 w-4 text-primary" /> Instagram
+              </a>
+            )}
           </div>
         </div>
       )}

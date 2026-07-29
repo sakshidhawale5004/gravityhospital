@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero } from "@/components/site/PageHero";
 import { HOSPITAL, whatsappLink } from "@/lib/site-data";
-import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
+import { Phone, Mail, MapPin, MessageCircle, Instagram } from "lucide-react";
 import { AppointmentForm } from "@/components/site/AppointmentDialog";
 
 export const Route = createFileRoute("/contact")({
@@ -35,6 +35,9 @@ function Contact() {
           ))}
           <ContactCard icon={Mail} title="Email" body={HOSPITAL.email} href={`mailto:${HOSPITAL.email}`} />
           <ContactCard icon={MessageCircle} title="WhatsApp" body="Chat with us on WhatsApp" href={whatsappLink()} external />
+          {HOSPITAL.instagram && (
+            <ContactCard icon={Instagram} title="Instagram" body="@gravityhospital_pcmc" href={HOSPITAL.instagram} external />
+          )}
 
           <div className="mt-4 rounded-3xl overflow-hidden border shadow-soft">
             <iframe

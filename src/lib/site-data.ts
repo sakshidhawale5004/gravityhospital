@@ -507,7 +507,7 @@ export const DOCTORS = [
     name: "Dr. Pratap Somwanshi",
     role: "Managing Director & Head of Hospital",
     speciality: "Hospital Leadership",
-    image: "/pratapsomwanshi-new.jpeg",
+    image: "/dr%20pratap%20somwanshifordoctorpage.jpeg",
     bio: "Managing Director of Gravity Hospital & Research Centre, leading a mission-driven team focused on accessible, high-quality, compassionate healthcare in PCMC, Pune.",
   },
   {

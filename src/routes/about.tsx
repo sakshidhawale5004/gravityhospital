@@ -37,7 +37,7 @@ function About() {
           <div className="p-6 sm:p-8 flex items-center justify-center bg-gradient-to-br from-primary/5 via-muted/30 to-background border-b lg:border-b-0 lg:border-r border-border/60">
             <div className="relative w-full max-w-sm aspect-[4/5] overflow-hidden rounded-2xl shadow-3d border-4 border-white group">
               <img
-                src="/aboutpagepratapimage.jpeg"
+                src="/pratapsomwanshi-new.jpeg"
                 alt={md.name}
                 className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
               />

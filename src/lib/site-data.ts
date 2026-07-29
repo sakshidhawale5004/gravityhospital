@@ -419,7 +419,7 @@ export const FACILITIES: Facility[] = [
     short: "Streamlined, low-paperwork critical admissions.",
     icon: "🏥",
     image:
-      "/FACILITIES/Emergency%20OPD.jpg",
+      "/services1/Emergency%20Admission.jpg",
     intro:
       "In emergencies, treatment begins first — paperwork is handled in parallel by our admissions team to save every possible minute for the patient.",
     features: [
@@ -436,7 +436,7 @@ export const FACILITIES: Facility[] = [
     short: "In-house pharmacy stocked with essential and emergency drugs.",
     icon: "💊",
     image:
-      "/FACILITIES/Diagnostic%20Laboratory.jpeg",
+      "/services1/24×7%20Pharmacy.png",
     intro:
       "A round-the-clock pharmacy ensures every prescription — routine or emergency — is available on the spot, with pharmacist counselling for safe medication use.",
     features: [
@@ -470,7 +470,7 @@ export const FACILITIES: Facility[] = [
     short: "In-house CT imaging for rapid diagnosis.",
     icon: "🩻",
     image:
-      "/FACILITIES/ICU.jpg",
+      "/services1/ct%20scan.jpg",
     intro:
       "Our in-house CT scan supports fast decision-making for stroke, trauma, chest and abdominal emergencies — with radiologist reporting.",
     features: [
@@ -488,7 +488,7 @@ export const FACILITIES: Facility[] = [
     short: "Basic and advanced life-support ambulance on call.",
     icon: "🚑",
     image:
-      "/FACILITIES/Emergency%20OPD.jpg",
+      "/services1/24×7%20Ambulance.jpg",
     intro:
       "Round-the-clock ambulance service with trained staff, oxygen and essential emergency equipment for safe pre-hospital transport.",
     features: [
@@ -507,7 +507,7 @@ export const DOCTORS = [
     name: "Dr. Pratap Somwanshi",
     role: "Managing Director & Head of Hospital",
     speciality: "Hospital Leadership",
-    image: "/gravity/pratap%20somwanshi.jpeg",
+    image: "/pratapsomwanshi-new.jpeg",
     bio: "Managing Director of Gravity Hospital & Research Centre, leading a mission-driven team focused on accessible, high-quality, compassionate healthcare in PCMC, Pune.",
   },
   {

@@ -23,7 +23,7 @@ function FacilitiesIndex() {
         eyebrow="24×7 Facilities"
         title="Facilities that never sleep"
         subtitle="Round-the-clock support systems — from ICU to ambulance — that keep our specialities working seamlessly."
-        image="/FACILITIES/ICU.jpg"
+        image="/gallery-heroimage.jpeg"
       />
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 my-6 sm:my-12">
         <div className="grid gap-7 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">

@@ -125,7 +125,7 @@ function ServicesIndex() {
         eyebrow="Scope of Services"
         title="Care across 12+ specialities"
         subtitle="From routine OPD to advanced surgical procedures — our departments work together for precise diagnosis, timely intervention, and compassionate recovery."
-        image="https://images.unsplash.com/photo-1584467735815-f778f274e296?auto=format&fit=crop&w=1600&q=80"
+        image="/hospitalnewimage.jpeg"
       />
 
       {/* Main Specialities Section */}

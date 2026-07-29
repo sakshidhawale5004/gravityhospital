@@ -36,7 +36,7 @@ function FAQ() {
         eyebrow="Help Centre"
         title={"Frequently asked questions" as unknown as string}
         subtitle="Everything you need to know about services, OPD/IPD, billing, ambulance and CT scan. Can't find an answer? WhatsApp us — we're happy to help."
-        image="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1600&q=80"
+        image="/faqherosectionimage.jpg"
       />
 
       <section className="mx-auto max-w-4xl px-4 sm:px-6 mt-12">

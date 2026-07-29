@@ -37,7 +37,7 @@ function Gallery() {
         eyebrow="Our Gallery"
         title={"A look inside Gravity Hospital" as unknown as string}
         subtitle="Facilities, leadership moments and community highlights from Gravity Hospital & Research Centre."
-        image={galleryImages[0]}
+        image="/gallery-heroimage.jpeg"
       />
 
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20">

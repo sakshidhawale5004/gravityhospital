@@ -24,7 +24,7 @@ function Contact() {
         eyebrow="Get in touch"
         title={"We're here to help — 24×7" as unknown as string}
         subtitle="Call us, WhatsApp us, or drop by our reception. For emergencies, come directly to the Emergency OPD."
-        image="https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?auto=format&fit=crop&w=1600&q=80"
+        image="/contactimageforheerosection.jpg"
       />
 
       <section className="mx-auto max-w-7xl px-4 sm:px-6 mt-14 grid lg:grid-cols-2 gap-10">

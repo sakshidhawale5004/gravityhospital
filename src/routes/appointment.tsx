@@ -24,7 +24,7 @@ function Appointment() {
         eyebrow="Appointments"
         title={"Book an appointment" as unknown as string}
         subtitle="Choose a department, pick a preferred time, and we'll confirm on WhatsApp within business hours."
-        image="/doctorpage-herosectioimage.png"
+        image="/doctorpage-newheroimage.jpg"
       />
 
       <section className="mx-auto max-w-6xl px-4 sm:px-6 mt-14 grid lg:grid-cols-[1fr_360px] gap-10">

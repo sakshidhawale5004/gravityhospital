@@ -26,7 +26,7 @@ function Doctors() {
         eyebrow="Consultants & Medical Leadership"
         title={"Meet our expert medical team" as unknown as string}
         subtitle="Experienced consultants and surgeons working collaboratively across 12+ specialities to deliver evidence-based, compassionate hospital care."
-        image="/doctorpage-herosectioimage.png"
+        image="/doctorpage-newheroimage.jpg"
       />
 
       {/* Managing Director & Head of Hospital Spotlight */}

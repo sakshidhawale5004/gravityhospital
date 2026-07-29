@@ -109,14 +109,28 @@ function Home() {
             <Link
               key={f.slug}
               to={`/facilities/${f.slug}`}
-              className="card-3d flex flex-col justify-between rounded-2xl border border-border/80 bg-card p-6 sm:p-7 shadow-soft hover:shadow-3d hover:border-primary/40 transition-all duration-300 group h-full"
+              className="group card-3d flex flex-col rounded-2xl overflow-hidden border border-border/80 bg-card shadow-soft hover:shadow-3d hover:border-primary/40 transition-all duration-300 h-full"
             >
-              <div>
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                  <Sparkles className="h-6 w-6" />
+              <div className="relative h-44 overflow-hidden bg-muted">
+                <img
+                  src={f.image}
+                  alt={f.name}
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+                <div className="absolute bottom-3 left-3 text-xs font-semibold text-white/90 bg-black/40 backdrop-blur-sm px-2.5 py-1 rounded-md">
+                  24×7 Facility
                 </div>
-                <h3 className="mt-4 font-display text-lg font-bold group-hover:text-primary transition-colors">{f.name}</h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{f.short}</p>
+              </div>
+              <div className="p-5 sm:p-6 flex flex-col justify-between flex-1">
+                <div>
+                  <h3 className="font-display text-lg font-bold group-hover:text-primary transition-colors">{f.name}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed line-clamp-2">{f.short}</p>
+                </div>
+                <div className="mt-4 pt-3 border-t border-border/50 flex items-center justify-between text-xs font-semibold text-primary">
+                  <span>Learn more</span>
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+                </div>
               </div>
             </Link>
           ))}

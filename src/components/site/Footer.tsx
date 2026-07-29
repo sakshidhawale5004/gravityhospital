@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Phone, Mail, MapPin } from "lucide-react";
-const logo = { url: "/gravity-logo.png" };
+const logo = { url: "/footerlogo.jpeg" };
 import { HOSPITAL, SERVICES, FACILITIES } from "@/lib/site-data";
 
 export function Footer() {
@@ -9,7 +9,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-14 grid gap-10 lg:grid-cols-4">
         <div>
           <div className="inline-block rounded-2xl bg-white px-4 py-2.5 shadow-lg">
-            <img src={logo.url} alt="Gravity Hospital & Research Centre" className="h-16 sm:h-20 w-auto object-contain" />
+            <img src={logo.url} alt="Gravity Hospital & Research Centre" className="h-20 sm:h-24 w-auto object-contain" />
           </div>
           <p className="mt-5 text-sm text-white/80 leading-relaxed">
             A modern multi-speciality hospital in Nigdi, PCMC, Pune — combining advanced medical technology with compassionate, family-like care.

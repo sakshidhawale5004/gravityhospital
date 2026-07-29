@@ -21,12 +21,12 @@ export function Header() {
         </div>
       </div>
 
-      <div className="mx-auto flex h-28 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-32 sm:h-36 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link to="/" className="flex items-center shrink-0 group">
           <img
             src={logo.url}
             alt="Gravity Hospital"
-            className="h-24 sm:h-28 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            className="h-28 sm:h-32 w-auto max-w-[300px] sm:max-w-[380px] object-contain transition-transform duration-300 group-hover:scale-105"
           />
         </Link>
 

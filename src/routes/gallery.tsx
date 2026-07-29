@@ -8,7 +8,6 @@ import { Dialog, DialogContent } from "@/components/ui/dialog";
 const rawGalleryImages = [
   "/gravity/gravity (4).jpg",
   "/gravity/gravity (3).jpg",
-  "/gravity/dr pratap somwanshi.jpeg",
   ...Array.from(
     { length: 32 },
     (_, i) => `/gallery/gallerypageimagesdon'taddinotherpages (${i + 1}).jpeg`

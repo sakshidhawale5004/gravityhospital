@@ -1,11 +1,89 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero } from "@/components/site/PageHero";
 import { AppointmentDialog } from "@/components/site/AppointmentDialog";
 import { Button } from "@/components/ui/button";
 import { SERVICES, FACILITIES, DOCTORS, TESTIMONIALS, HOSPITAL, whatsappLink } from "@/lib/site-data";
-import { Ambulance, HeartPulse, ShieldCheck, Sparkles, Clock, Users, Award, Stethoscope, ArrowRight } from "lucide-react";
+import {
+  Ambulance,
+  HeartPulse,
+  ShieldCheck,
+  Sparkles,
+  Clock,
+  Users,
+  Award,
+  Stethoscope,
+  ArrowRight,
+  HelpCircle,
+  PhoneCall,
+  Calendar,
+  CheckCircle2,
+} from "lucide-react";
 import { TestimonialSlider } from "@/components/site/TestimonialSlider";
+
+const SYMPTOM_GUIDE = [
+  {
+    id: "chest-breathing",
+    label: "Chest Pain or Breathlessness",
+    icon: "🫁",
+    speciality: "General Medicine & Critical Care",
+    advice:
+      "For sudden chest pain, severe shortness of breath, or dizziness, visit our 24×7 Emergency OPD immediately for ECG, enzyme testing, and rapid triage.",
+    emergency: true,
+    link: "/services/medicine",
+  },
+  {
+    id: "joint-injury",
+    label: "Joint Pain, Fracture or Injury",
+    icon: "🦴",
+    speciality: "Orthopaedics & Joint Care",
+    advice:
+      "Specialized treatment for fractures, sports injuries, arthritis, and ligament pain with in-house digital X-Ray and modern orthopaedic surgery support.",
+    emergency: false,
+    link: "/services/orthopaedics",
+  },
+  {
+    id: "fever-weakness",
+    label: "Persistent Fever or Infection",
+    icon: "🤒",
+    speciality: "General Medicine",
+    advice:
+      "Comprehensive diagnostic evaluation for dengue, malaria, typhoid, seasonal viral infections, and chronic fatigue with our 24×7 Pathology Lab.",
+    emergency: false,
+    link: "/services/medicine",
+  },
+  {
+    id: "abdominal-pain",
+    label: "Abdominal Pain or Digestion",
+    icon: "🔪",
+    speciality: "General & Laparoscopic Surgery",
+    advice:
+      "Expert evaluation for appendicitis, gallstones, hernia, and acute gastric disorders with minimally invasive laparoscopic surgical procedures.",
+    emergency: false,
+    link: "/services/surgery",
+  },
+  {
+    id: "maternity-gynae",
+    label: "Pregnancy & Women's Health",
+    icon: "👶",
+    speciality: "Gynaecology & Obstetrics",
+    advice:
+      "Complete maternal and fetal care, high-risk pregnancy monitoring, painless delivery support, and routine gynecological check-ups.",
+    emergency: false,
+    link: "/services/gynaecology",
+  },
+  {
+    id: "child-care",
+    label: "Child & Newborn Care",
+    icon: "🧸",
+    speciality: "Paediatrics & Neonatology",
+    advice:
+      "Gentle, expert care for infants, toddlers, and children—including vaccinations, growth monitoring, and pediatric emergency support.",
+    emergency: false,
+    link: "/services/paediatrics",
+  },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -20,6 +98,8 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
+  const [activeSymptom, setActiveSymptom] = useState(SYMPTOM_GUIDE[0]);
+
   return (
     <SiteLayout>
       <PageHero
@@ -98,6 +178,130 @@ function Home() {
               </div>
             </Link>
           ))}
+        </div>
+      </section>
+
+      {/* Interactive Symptom & Speciality Helpdesk — NEW SECTION */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 sm:py-20 my-4">
+        <div className="rounded-3xl border border-border/80 bg-gradient-to-br from-primary/5 via-card to-muted/30 p-6 sm:p-12 shadow-3d relative overflow-hidden">
+          {/* Decorative floating shapes */}
+          <div className="pointer-events-none absolute -top-20 -right-20 h-64 w-64 rounded-full bg-gradient-brand opacity-15 blur-3xl float-slow" />
+          <div className="pointer-events-none absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-gradient-orange opacity-15 blur-3xl float-medium" />
+
+          <div className="max-w-3xl mx-auto text-center relative z-10">
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-primary shadow-sm">
+              <HelpCircle className="h-3.5 w-3.5" />
+              Symptom & Care Guidance · Interactive Helpdesk
+            </div>
+            <h2 className="mt-4 font-display text-2xl sm:text-4xl font-extrabold text-foreground">
+              Not sure which speciality to consult?
+            </h2>
+            <p className="mt-3 text-sm sm:text-base text-muted-foreground leading-relaxed">
+              Select a common symptom or health concern below to instantly discover the recommended department, clinical advice, and immediate care options.
+            </p>
+          </div>
+
+          {/* Symptom selector pills */}
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 relative z-10">
+            {SYMPTOM_GUIDE.map((s) => {
+              const isSelected = activeSymptom.id === s.id;
+              return (
+                <button
+                  key={s.id}
+                  onClick={() => setActiveSymptom(s)}
+                  className={`inline-flex items-center gap-2.5 rounded-2xl px-4 py-2.5 text-xs sm:text-sm font-semibold transition-all duration-300 btn-3d ${
+                    isSelected
+                      ? "bg-gradient-brand text-white shadow-md scale-105"
+                      : "bg-card border border-border/80 text-foreground hover:border-primary/50 hover:bg-muted/50"
+                  }`}
+                >
+                  <span className="text-base">{s.icon}</span>
+                  <span>{s.label}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Active Symptom Result Card */}
+          <div className="mt-8 max-w-4xl mx-auto rounded-2xl border border-border/80 bg-card p-6 sm:p-8 shadow-3d relative z-10 animate-fade-in-up">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 border-b border-border/60">
+              <div className="flex items-center gap-3">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-2xl">
+                  {activeSymptom.icon}
+                </div>
+                <div>
+                  <div className="text-xs font-bold uppercase tracking-wider text-primary">
+                    Recommended Speciality
+                  </div>
+                  <h3 className="font-display text-xl sm:text-2xl font-extrabold text-foreground">
+                    {activeSymptom.speciality}
+                  </h3>
+                </div>
+              </div>
+
+              {activeSymptom.emergency ? (
+                <div className="inline-flex items-center gap-2 rounded-full bg-rose-500/10 border border-rose-500/20 px-3.5 py-1.5 text-xs font-bold text-rose-600 dark:text-rose-400">
+                  <span className="h-2 w-2 rounded-full bg-rose-500 animate-pulse" />
+                  24×7 Emergency Triage Available
+                </div>
+              ) : (
+                <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 px-3.5 py-1.5 text-xs font-bold text-emerald-600 dark:text-emerald-400">
+                  <CheckCircle2 className="h-3.5 w-3.5" />
+                  OPD & Cashless Surgery Supported
+                </div>
+              )}
+            </div>
+
+            <p className="mt-5 text-sm sm:text-base text-muted-foreground leading-relaxed">
+              {activeSymptom.advice}
+            </p>
+
+            <div className="mt-7 pt-5 border-t border-border/60 flex flex-wrap items-center justify-between gap-4">
+              <div className="flex flex-wrap items-center gap-3">
+                <AppointmentDialog>
+                  <Button size="lg" className="bg-gradient-brand text-white shadow-elegant hover:opacity-95 btn-3d font-semibold px-6">
+                    <Calendar className="h-4 w-4 mr-2" /> Book OPD Consultation
+                  </Button>
+                </AppointmentDialog>
+                <a
+                  href={whatsappLink(`Hi Gravity Hospital, I'd like to enquire about consultation for ${activeSymptom.label} (${activeSymptom.speciality}).`)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button size="lg" variant="outline" className="border-primary/30 btn-3d font-semibold">
+                    WhatsApp Enquiry
+                  </Button>
+                </a>
+                <Link to={activeSymptom.link}>
+                  <Button size="lg" variant="ghost" className="text-primary hover:text-primary font-semibold">
+                    View Department Details →
+                  </Button>
+                </Link>
+              </div>
+
+              {activeSymptom.emergency && (
+                <a
+                  href={`tel:${HOSPITAL.phones[0].replace(/\s/g, "")}`}
+                  className="inline-flex items-center gap-2 text-sm font-bold text-rose-600 hover:underline"
+                >
+                  <PhoneCall className="h-4 w-4" /> Emergency Helpline: {HOSPITAL.phones[0]}
+                </a>
+              )}
+            </div>
+          </div>
+
+          {/* Quick Assurance Strip */}
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-xs sm:text-sm font-semibold text-muted-foreground relative z-10">
+            <div className="flex items-center gap-2">
+              <CheckCircle2 className="h-4 w-4 text-primary" /> 24×7 ICU & Emergency Support
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle2 className="h-4 w-4 text-primary" /> Senior Hospital Consultants
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle2 className="h-4 w-4 text-primary" /> All Major Health Insurances & TPAs Accepted
+            </div>
+          </div>
         </div>
       </section>
 
